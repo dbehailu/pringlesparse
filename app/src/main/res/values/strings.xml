@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Pringles Parse</string>
+    <string name="log_in">Log In</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="Create">create</string>
+    <string name="Refresh">refresh</string>
+</resources>
