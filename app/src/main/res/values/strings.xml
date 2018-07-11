@@ -4,4 +4,5 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="Create">create</string>
     <string name="Refresh">refresh</string>
+    <string name="enter_a_description">enter a description</string>
 </resources>

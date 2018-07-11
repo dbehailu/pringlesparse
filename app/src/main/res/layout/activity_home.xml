@@ -14,12 +14,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="113dp"
         android:ems="10"
-        android:hint="enter a description"
-        android:inputType="textEmailAddress" />
+        android:hint="@string/enter_a_description"/>
 
     <Button
         android:id="@+id/create_btn"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -29,7 +27,6 @@
 
     <Button
         android:id="@+id/refresh_btn"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

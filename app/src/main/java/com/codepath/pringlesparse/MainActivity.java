@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
                 login(username, password);
             }
         });
+
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+//        // if you want shadow
+//        getSupportActionBar().setElevation(
+//                getResources().getDimensionPixelSize(R.dimen.action_bar_elevation)
+//        );
     }
 
     private void login(String username, String password) {
@@ -53,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
+
+
 }

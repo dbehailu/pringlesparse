@@ -1,6 +1,10 @@
 package com.codepath.pringlesparse;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -19,10 +23,12 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private static final String imagePath = "/storage/emulated/0/DCIM/Camera/IMG_20151102_193132.jpg";
+    private static final String imagePath = "/storage/emulated/0/DCIM/Camera/IMG_20180711_114335.jpg";
+    static final String TAG = HomeActivity.class.getSimpleName();
     private EditText descriptionInput;
     private Button createButton;
     private Button refreshButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,16 +50,23 @@ public class HomeActivity extends AppCompatActivity {
         refreshButton = findViewById(R.id.refresh_btn);
         createButton = findViewById(R.id.create_btn);
 
+        if(isStoragePermissionGranted()){
+//            Bitmap bm = BitmapFactory.decodeFile("/storage/emulated/0/DCIM/Camera/IMG_20151102_193132.jpg");
+//            image.setImageBitmap(bm);
+
+        }
+
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String description = descriptionInput.getText().toString();
                 final ParseUser user = ParseUser.getCurrentUser();
+                if(isStoragePermissionGranted()) {
+                    final File file = new File(imagePath);
+                    final ParseFile parseFile = new ParseFile(file);
 
-                final File file = new File(imagePath);
-                final ParseFile parseFile = new ParseFile(file);
-
-                createPost(description, parseFile, user);
+                    createPost(description, parseFile, user);
+                }
             }
         });
 
@@ -103,6 +116,25 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted");
+            return true;
+        }
     }
 
 }
