@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/solid_white</item>
-        <item name="colorPrimaryDark">@color/gallery_item_selection_circle_shadow_color</item>
-        <item name="colorAccent">@color/status_bar_background</item>
+        <item name="colorPrimary">@color/status_bar_background</item>
+        <item name="colorPrimaryDark">@color/sticker_subtle_dark_background</item>
+        <item name="colorAccent">@color/instagram_icon_blue</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

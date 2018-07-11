@@ -26,8 +26,9 @@ public class HomeActivity extends AppCompatActivity {
     private static final String imagePath = "/storage/emulated/0/DCIM/Camera/IMG_20180711_114335.jpg";
     static final String TAG = HomeActivity.class.getSimpleName();
     private EditText descriptionInput;
-    private Button createButton;
-    private Button refreshButton;
+    Button createButton;
+    Button refreshButton;
+    Button logoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +47,20 @@ public class HomeActivity extends AppCompatActivity {
 //            }
 //        });
 
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        toolbar.setLogo();
+
         descriptionInput = findViewById(R.id.description_et);
         refreshButton = findViewById(R.id.refresh_btn);
         createButton = findViewById(R.id.create_btn);
+        logoutButton = findViewById(R.id.logout_btn);
 
-        if(isStoragePermissionGranted()){
-//            Bitmap bm = BitmapFactory.decodeFile("/storage/emulated/0/DCIM/Camera/IMG_20151102_193132.jpg");
-//            image.setImageBitmap(bm);
-
-        }
+//        if(isStoragePermissionGranted()){
+////            Bitmap bm = BitmapFactory.decodeFile("/storage/emulated/0/DCIM/Camera/IMG_20151102_193132.jpg");
+////            image.setImageBitmap(bm);
+//
+//        }
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +80,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loadTopPosts();
+            }
+        });
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logout();
             }
         });
 
@@ -108,8 +121,8 @@ public class HomeActivity extends AppCompatActivity {
                 if (e == null) {
                     for (int i = 0; i < objects.size(); ++i) {
                         Log.d("HomeActivity", "Post[" + i + "] = "
-                                + objects.get(i).getDescription());
-//                                + "\nusername = " + objects.get(i).getUser().getUsername());
+                                + objects.get(i).getDescription()
+                                + "\nusername = " + objects.get(i).getUser().getUsername());
                     }
                 } else {
                     e.printStackTrace();
@@ -135,6 +148,11 @@ public class HomeActivity extends AppCompatActivity {
             Log.v(TAG,"Permission is granted");
             return true;
         }
+    }
+
+    private void logout() {
+        ParseUser.logOut();
+        ParseUser currentUser = ParseUser.getCurrentUser();
     }
 
 }
