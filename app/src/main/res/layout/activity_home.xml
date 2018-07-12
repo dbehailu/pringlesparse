@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <EditText
         android:id="@+id/description_et"
@@ -13,12 +13,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="113dp"
+        android:inputType="text"
         android:ems="10"
         android:hint="@string/enter_a_description"/>
 
     <Button
         android:id="@+id/create_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="209dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -27,25 +28,26 @@
 
     <Button
         android:id="@+id/refresh_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="209dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/Refresh" />
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
-
     <Button
         android:id="@+id/logout_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="207dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="82dp"
-        android:text="Button" />
+        android:layout_marginBottom="147dp"
+        android:text="Logout" />
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:minHeight="?attr/actionBarSize"-->
+        <!--android:background="?attr/colorPrimary" />-->
+
 
 </RelativeLayout>

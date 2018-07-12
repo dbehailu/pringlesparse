@@ -1,6 +1,7 @@
 package com.codepath.pringlesparse;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,9 +22,10 @@ import com.parse.SaveCallback;
 import java.io.File;
 import java.util.List;
 
+// Home Activity gives us the homepage/feed page of instagram:
 public class HomeActivity extends AppCompatActivity {
 
-    private static final String imagePath = "/storage/emulated/0/DCIM/Camera/IMG_20180711_114335.jpg";
+    private static final String imagePath = "/storage/emulated/0/DCIM/Camera/IMG_20180712_090451.jpg";
     static final String TAG = HomeActivity.class.getSimpleName();
     private EditText descriptionInput;
     Button createButton;
@@ -54,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         descriptionInput = findViewById(R.id.description_et);
         refreshButton = findViewById(R.id.refresh_btn);
         createButton = findViewById(R.id.create_btn);
+        // TODO - use this in profile page's activity
         logoutButton = findViewById(R.id.logout_btn);
 
 //        if(isStoragePermissionGranted()){
@@ -83,10 +86,20 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // TODO - implement logout button click listener with logout method
+//        logoutButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                logout();
+//            }
+//        });
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                logout();
+                ParseUser.logOut();
+                Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+                startActivity(i);
             }
         });
 
@@ -149,10 +162,10 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
     }
-
-    private void logout() {
-        ParseUser.logOut();
-        ParseUser currentUser = ParseUser.getCurrentUser();
-    }
+// TODO - implement logout button in profile page
+//    private void logout() {
+//        ParseUser.logOut();
+//        ParseUser currentUser = ParseUser.getCurrentUser();
+//    }
 
 }

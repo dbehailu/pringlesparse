@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/status_bar_background</item>
-        <item name="colorPrimaryDark">@color/sticker_subtle_dark_background</item>
+        <item name="colorPrimary">@color/transparent</item>
+        <item name="colorPrimaryDark">@color/tabbar_black</item>
         <item name="colorAccent">@color/instagram_icon_blue</item>
     </style>
 
@@ -13,8 +13,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!--<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!--<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 
 </resources>

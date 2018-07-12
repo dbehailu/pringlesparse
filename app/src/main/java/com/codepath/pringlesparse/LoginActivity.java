@@ -12,11 +12,13 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-public class MainActivity extends AppCompatActivity {
+// Login Page
+public class LoginActivity extends AppCompatActivity {
 
     private EditText usernameInput;
     private EditText passwordInput;
     private Button loginBtn;
+    private Button signUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.username_et);
         passwordInput = findViewById(R.id.password_et);
         loginBtn = findViewById(R.id.login_btn);
+        signUpButton = findViewById(R.id.signup_btn);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(i);
+            }
+        });
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -53,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void done(ParseUser user, ParseException e) {
                 if (e == null) {
                     Log.d("LoginActivity", "Login successful");
-                    final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    final Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
