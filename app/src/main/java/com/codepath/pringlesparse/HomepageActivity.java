@@ -22,11 +22,12 @@ import com.parse.SaveCallback;
 import java.io.File;
 import java.util.List;
 
-// Home Activity gives us the homepage/feed page of instagram:
-public class HomeActivity extends AppCompatActivity {
+// Home Activity gives us the homepage/feed page of Instagram
+
+public class HomepageActivity extends AppCompatActivity {
 
     private static final String imagePath = "/storage/emulated/0/DCIM/Camera/IMG_20180712_090451.jpg";
-    static final String TAG = HomeActivity.class.getSimpleName();
+    static final String TAG = HomepageActivity.class.getSimpleName();
     private EditText descriptionInput;
     Button createButton;
     Button refreshButton;
@@ -37,33 +38,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        toolbar.setLogo();
-
         descriptionInput = findViewById(R.id.description_et);
         refreshButton = findViewById(R.id.refresh_btn);
         createButton = findViewById(R.id.create_btn);
-        // TODO - use this in profile page's activity
+        // TODO - use this in profile page's activity?
         logoutButton = findViewById(R.id.logout_btn);
 
-//        if(isStoragePermissionGranted()){
-////            Bitmap bm = BitmapFactory.decodeFile("/storage/emulated/0/DCIM/Camera/IMG_20151102_193132.jpg");
-////            image.setImageBitmap(bm);
-//
-//        }
+
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,19 +67,11 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        // TODO - implement logout button click listener with logout method
-//        logoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                logout();
-//            }
-//        });
-
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ParseUser.logOut();
-                Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+                Intent i = new Intent(HomepageActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });
@@ -162,10 +135,5 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
     }
-// TODO - implement logout button in profile page
-//    private void logout() {
-//        ParseUser.logOut();
-//        ParseUser currentUser = ParseUser.getCurrentUser();
-//    }
 
 }

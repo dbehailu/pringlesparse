@@ -23,6 +23,8 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        usernameText = findViewById(R.id.usernameText);
+        passwordText = findViewById(R.id.passwordText);
         submitButton = findViewById(R.id.submit_btn);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -34,13 +36,13 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if(e == null){
-                            Log.d("RegisterActivity", "Sign up successful");
+                            Log.d("SignupActivity", "Sign up successful");
                             Intent i = new Intent(SignupActivity.this, LoginActivity.class);
                             startActivity(i);
                             finish();
                         }
                         else{
-                            Log.e("RegisterActivity", "Sign up failure");
+                            Log.e("SignupActivity", "Sign up failure");
                             e.printStackTrace();
                         }
                     }

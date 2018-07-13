@@ -23,13 +23,24 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
+        if(ParseUser.getCurrentUser() != null){
+
+            final Intent intent = new Intent(LoginActivity.this, LandingActivity.class);
+            startActivity(intent);
+            finish();
+
+            return;
+        }
+
+        // login information and buttons
         usernameInput = findViewById(R.id.username_et);
         passwordInput = findViewById(R.id.password_et);
         loginBtn = findViewById(R.id.login_btn);
         signUpButton = findViewById(R.id.signup_btn);
 
+        // login/signup button listeners
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,23 +58,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        // if you want shadow
-//        getSupportActionBar().setElevation(
-//                getResources().getDimensionPixelSize(R.dimen.action_bar_elevation)
-//        );
     }
 
+    // login method
     private void login(String username, String password) {
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if (e == null) {
                     Log.d("LoginActivity", "Login successful");
-                    final Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    final Intent intent = new Intent(LoginActivity.this, LandingActivity.class);
                     startActivity(intent);
                     finish();
                 } else {

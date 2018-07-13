@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="171dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/username"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="52dp" />
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="148dp" />
@@ -41,7 +41,7 @@
         android:text="@string/log_in" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/instagramLogo"
         android:layout_width="195dp"
         android:layout_height="108dp"
         android:layout_alignParentTop="true"
@@ -56,6 +56,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="115dp"
-        android:text="Sign Up" />
+        android:text="@string/sign_up" />
 
 </RelativeLayout>
