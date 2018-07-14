@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 public class DetailActivity extends AppCompatActivity {
 
     private ImageView photo;
@@ -29,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
         String myName = getIntent().getStringExtra("username");
         username.setText(myName);
         String myUrl = getIntent().getStringExtra("photo");
-        Glide.with(DetailActivity.this).load(myUrl).into(photo);
+//        Glide.with(DetailActivity.this).load(myUrl).into(photo);
         String myTime = getIntent().getStringExtra("time");
         time.setText(myTime);
     }
