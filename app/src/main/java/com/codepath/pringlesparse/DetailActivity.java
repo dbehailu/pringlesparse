@@ -29,8 +29,7 @@ public class DetailActivity extends AppCompatActivity {
         String myName = getIntent().getStringExtra("username");
         username.setText(myName);
         String myUrl = getIntent().getStringExtra("photo");
-        Glide.with(this).load(myUrl)
-                .into(photo);
+        Glide.with(DetailActivity.this).load(myUrl).into(photo);
         String myTime = getIntent().getStringExtra("time");
         time.setText(myTime);
     }

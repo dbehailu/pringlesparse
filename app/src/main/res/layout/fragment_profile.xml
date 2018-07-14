@@ -22,7 +22,7 @@
         android:layout_marginLeft="230dp"
         android:layout_marginTop="300dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/ufi_new_direct"
+        android:background="@android:color/darker_gray"
         android:text="Logout" />
 
 </RelativeLayout>
